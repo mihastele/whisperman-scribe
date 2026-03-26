@@ -31,6 +31,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/templates", StaticFiles(directory="templates"), name="templates")
+
 WHISPER_LANGUAGES = {
     "afrikaans": "af",
     "albanian": "sq",
