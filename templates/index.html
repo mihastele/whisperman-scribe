@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whisper Transcription App</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Whisper Transcription App</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="transcription-mode">Transcription Mode:</label>
+                <select id="transcription-mode">
+                    <option value="file">File Upload</option>
+                    <option value="live">Live Transcription</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="model-type">Model Type:</label>
+                <select id="model-type">
+                    <option value="faster-whisper">Faster Whisper</option>
+                    <option value="whisper">Whisper</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="model-size">Model Size:</label>
+                <select id="model-size">
+                    <option value="tiny">Tiny</option>
+                    <option value="base" selected>Base</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large-v3">Large V3</option>
+                    <option value="large-v2">Large V2</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="language">Language:</label>
+                <select id="language">
+                    <option value="">Auto-detect</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="file-upload-section" id="file-upload-section">
+            <div class="upload-area">
+                <input type="file" id="audio-file" accept="audio/*,.wav,.mp3,.m4a,.flac,.ogg,.aac,.wma">
+                <button id="upload-btn" disabled>Transcribe File</button>
+            </div>
+        </div>
+        
+        <div class="live-section" id="live-section" style="display: none;">
+            <div class="live-controls">
+                <button id="start-live-btn">Start Live Transcription</button>
+                <button id="stop-live-btn" disabled>Stop</button>
+            </div>
+            <div class="live-status">
+                <span id="live-status-text">Ready to transcribe...</span>
+            </div>
+        </div>
+        
+        <div class="output-section">
+            <div class="output-header">
+                <h2>Transcription Output</h2>
+                <div class="output-actions">
+                    <button id="copy-btn" disabled>Copy</button>
+                    <button id="save-btn" disabled>Save as TXT</button>
+                    <button id="clear-btn">Clear</button>
+                </div>
+            </div>
+            <div id="output-text" contenteditable="true" placeholder="Transcription will appear here..."></div>
+        </div>
+    </div>
+    
+    <script src="static/app.js"></script>
+</body>
+</html>
